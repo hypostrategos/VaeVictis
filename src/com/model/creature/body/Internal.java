@@ -1,25 +1,28 @@
 package com.model.creature.body;
 
-public interface Internal {
+public abstract class Internal implements java.io.Serializable {
+	
+	int currentVolume;
+	int maxVolume;
 
 }
 
-class Brain implements Internal {
+class Brain extends Internal {
 	
 }
 
-class Mouth implements Internal {
+class Mouth extends Internal {
 	
 }
 
-class Stomach implements Internal {
+class Stomach extends Internal {
 	
 }
 
-class Intestines implements Internal {
+class Intestines extends Internal {
 	
 }
 
-class Heart implements Internal {
+class Heart extends Internal {
 	
 }

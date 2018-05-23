@@ -3,7 +3,7 @@ package com.model.creature.body;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TorsoSegment {
+public class TorsoSegment implements java.io.Serializable {
 	
 	List<Limb> limbs = new ArrayList<>();
 	List<Internal> internals = new ArrayList<>();

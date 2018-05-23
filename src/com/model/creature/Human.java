@@ -2,7 +2,7 @@ package com.model.creature;
 
 import com.model.creature.body.*;
 
-public class Human {
+public class Human implements Creature {
 
 	Frame frame = new Frame();
 	

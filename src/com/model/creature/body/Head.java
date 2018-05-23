@@ -3,7 +3,7 @@ package com.model.creature.body;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Head {
+public class Head implements java.io.Serializable {
 	
 	List<Internal> internals = new ArrayList<>();
 	

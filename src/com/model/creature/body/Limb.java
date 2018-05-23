@@ -1,17 +1,19 @@
 package com.model.creature.body;
 
-public interface Limb {
+public abstract class Limb implements java.io.Serializable {
+	
+	int length;
 
 }
 
-class Arm implements Limb {
+class Arm extends Limb {
 	
 }
 
-class Leg implements Limb {
+class Leg extends Limb {
 	
 }
 
-class Tentacle implements Limb {
+class Tentacle extends Limb {
 	
 }

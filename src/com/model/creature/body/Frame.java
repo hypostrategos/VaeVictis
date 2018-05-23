@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Frame {
+public class Frame implements java.io.Serializable{
 	private Head head;
 	private List<TorsoSegment> torsoSegments = new ArrayList<>();
 

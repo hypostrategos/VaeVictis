@@ -5,17 +5,16 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import com.model.creature.Human;
 import com.model.world.World;
 
 public class Main {	
 	private static World world;
 	public static void main(String[] args) {
 		 start("null");
-		 
-		 
-//		 world.test="test new";
-//		 save("NewSave.sav");
-//		 start("NewSave.sav");
+		 save("NewSave.sav");
+		 start("NewSave.sav");
+		 System.out.println(world.creatures);
 	}
 	
 	public static void start(String saveName) {
