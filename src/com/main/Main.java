@@ -11,9 +11,11 @@ public class Main {
 	private static World world;
 	public static void main(String[] args) {
 		 start("null");
-		 world.test="test new";
-		 save("NewSave.sav");
-		 start("NewSave.sav");
+		 
+		 
+//		 world.test="test new";
+//		 save("NewSave.sav");
+//		 start("NewSave.sav");
 	}
 	
 	public static void start(String saveName) {
