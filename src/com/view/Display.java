@@ -31,8 +31,8 @@ class keyEvent implements KeyListener {
 	public void keyPressed(KeyEvent k) {
 //		 System.out.println(k.getKeyCode());
 		switch(k.getKeyCode()) {
-//			 case 84 : world = World.getInstance(); //t key
-//			 break;
+			 case 84 : World.instance.addRegion(); //t key
+			 break;
 			 case 85 : World.instance.worldUpdate(1); // u key
 			 break;
 			 case 73 : World.instance.worldUpdate(100); //i key
@@ -41,7 +41,9 @@ class keyEvent implements KeyListener {
 			 break;
 			 case 76 : Storage.load("NewSave.sav");  //l
 			 break;
-			 case 68 : System.out.println(World.instance.creatures); // d key 
+			 case 68 : System.out.println("----Regions: "+World.instance.regions.size()
+			 +"	Time: "+World.instance.currTime+"\n"+World.instance);
+//				 System.out.println(World.instance.getCurrRegion().creatures); // d key 
 			 break;
 			// case 88 : map.mapIncreaseSpecies(1); //z key
 			// break;
