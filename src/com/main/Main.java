@@ -15,7 +15,6 @@ public class Main {
 		save("NewSave.sav");
 		load("NewSave.sav");
 		System.out.println(world.creatures);
-		System.out.println(world.currTime);
 	}
 	
 	public static void load(String saveName) {

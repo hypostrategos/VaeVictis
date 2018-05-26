@@ -4,7 +4,8 @@ import com.model.creature.body.*;
 
 public class Human extends Creature {
 	
-	public Human() {
+	public Human(int xLoc, int yLoc) {
+		super(xLoc, yLoc);
 		frame = new Frame();
 		frame.addHead()
 			.addBrain();
@@ -12,16 +13,6 @@ public class Human extends Creature {
 			.addLeg().addLeg();
 		frame.addTorsoSegment()
 			.addArm().addArm();
-	}
-	public Human(int xLoc, int yLoc) {
-		this();
-		this.xLoc = xLoc;
-		this.yLoc = yLoc;
-	}
-	
-	@Override
-	public String toString() {
-		return frame+" xLoc:"+xLoc+" yLoc:"+yLoc+"\n";
 	}
 
 }
