@@ -9,11 +9,11 @@ import com.model.creature.Creature;
 import com.model.creature.Human;
 
 public class World implements java.io.Serializable  {
-	public static World instance = new World();	
+	public static World instance;
 	public double currTime;
 	
-	final int xMax = 10;
-	final int yMax = 10;
+	final int xMax = 100;
+	final int yMax = 100;
 	int tiles[][] = new int[xMax][yMax];
 	
 	public List<Creature> creatures = new ArrayList<>();
@@ -29,10 +29,13 @@ public class World implements java.io.Serializable  {
 					break;
 				}
 				tiles[i][j] = val;
-				System.out.print(val);
+//				System.out.print(val);
 			}
-			System.out.println();
+//			System.out.println();
 		}
+	}
+	public static void setWorld() {
+		instance = new World();
 	}
 			
 	public void worldUpdate(double addTime) {
