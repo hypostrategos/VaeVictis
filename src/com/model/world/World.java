@@ -9,11 +9,17 @@ import com.model.creature.Human;
 public class World implements java.io.Serializable  {
 	private static final long serialVersionUID = 1L;
 	
+	int xMax = 10;
+	int yMax = 10;
+	
 	public List<Creature> creatures = new ArrayList<>();
 			
 	public World() {
-		creatures.add(new Human());
-		creatures.add(new Human());
+		for (int i=0;i<xMax;i++) {
+			for (int j=1;j<yMax;j++) {
+				creatures.add(new Human(i,j));
+			}
+		}
 	}
 	
 }

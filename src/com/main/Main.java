@@ -11,19 +11,18 @@ import com.model.world.World;
 public class Main {	
 	private static World world;
 	public static void main(String[] args) {
-		 start("null");
+		 load("null");
 		 save("NewSave.sav");
-		 start("NewSave.sav");
+//		 load("NewSave.sav");
 		 System.out.println(world.creatures);
 	}
 	
-	public static void start(String saveName) {
+	public static void load(String saveName) {
 		if (saveName.equals("null")) {
 			world = new World();
 		} else {
 			try {
-				FileInputStream saveFile = new FileInputStream(saveName);
-				ObjectInputStream save = new ObjectInputStream(saveFile);
+				ObjectInputStream save = new ObjectInputStream(new FileInputStream(saveName));
 				world = (World) save.readObject();
 				save.close();
 			} catch (Exception e) {
@@ -33,8 +32,7 @@ public class Main {
 	}
 	public static void save(String saveName) {
 		try {
-			FileOutputStream saveFile = new FileOutputStream(saveName);
-			ObjectOutputStream save = new ObjectOutputStream(saveFile);
+			ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream(saveName));
 			save.writeObject(world);
 			save.close();
 		} catch(Exception e) {
