@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import com.model.creature.Human;
 import com.model.world.World;
 
 public class Main {	
@@ -19,7 +18,7 @@ public class Main {
 	
 	public static void load(String saveName) {
 		if (saveName.equals("null")) {
-			world = new World();
+			world = World.getInstance();
 		} else {
 			try {
 				ObjectInputStream save = new ObjectInputStream(new FileInputStream(saveName));
