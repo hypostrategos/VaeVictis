@@ -9,7 +9,7 @@ import com.model.creature.Human;
 public class World implements java.io.Serializable  {
 	private static World instance;
 	
-	public static double currTime;
+	public double currTime;
 	
 	int xMax = 10;
 	int yMax = 10;
@@ -30,7 +30,7 @@ public class World implements java.io.Serializable  {
 		}
 		return instance;
 	}
-	
+		
 	public void worldUpdate(double addTime) {
 		currTime+=addTime;
 	}

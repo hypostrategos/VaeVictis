@@ -10,23 +10,21 @@ import com.model.world.World;
 public class Main {	
 	private static World world;
 	public static void main(String[] args) {
-		 load("null");
-		 save("NewSave.sav");
-//		 load("NewSave.sav");
-		 System.out.println(world.creatures);
+		world = World.getInstance();
+		world.worldUpdate(100);
+		save("NewSave.sav");
+		load("NewSave.sav");
+		System.out.println(world.creatures);
+		System.out.println(world.currTime);
 	}
 	
 	public static void load(String saveName) {
-		if (saveName.equals("null")) {
-			world = World.getInstance();
-		} else {
-			try {
-				ObjectInputStream save = new ObjectInputStream(new FileInputStream(saveName));
-				world = (World) save.readObject();
-				save.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		try {
+			ObjectInputStream save = new ObjectInputStream(new FileInputStream(saveName));
+			world = (World) save.readObject();
+			save.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	public static void save(String saveName) {
