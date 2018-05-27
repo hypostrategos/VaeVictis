@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.model.creature.Creature;
-import com.model.creature.Human;
+import com.model.creature.*;
 
 public class Region implements java.io.Serializable {
 
+	Random rand = new Random();
 	final int xMax = 100;
 	final int yMax = 100;
 	int tiles[][] = new int[xMax][yMax];
@@ -17,23 +17,37 @@ public class Region implements java.io.Serializable {
 	public List<Creature> creatures = new ArrayList<>();
 			
 	Region() {
-		Random rand = new Random();
 		StringBuilder sb = new StringBuilder();
-		int val;		
 		for (int j=0;j<yMax;j++) {
-			for (int i=0;i<xMax;i++) {
-//				val = rand.nextInt(5);
-				val = 1;
-				switch(val) {
-					case 1: creatures.add(new Human(i,j));
-					break;
-				}
-				tiles[i][j] = val;
-				sb.append(val);
+			for (int i=0;i<xMax;i++) {			
+				sb.append(spawn(i, j));
 			}
 			sb.append("\n");
 		}
 		overview = sb.toString();
+	}
+	
+	private int spawn(int i, int j) {
+		int tileValue = rand.nextInt(5);
+		switch(tileValue) {
+			case 1: creatureSpawn(i,j);
+			break;
+		}
+		tiles[i][j] = tileValue;
+		return tileValue;
+	}
+	
+	private void creatureSpawn(int i, int j) {
+		switch( rand.nextInt(4) ) {
+			case 0: creatures.add(new Human(i,j));
+			break;
+			case 1: creatures.add(new Dog(i,j));
+			break;
+			case 2: creatures.add(new Elf(i,j));
+			break;
+			case 3: creatures.add(new Snake(i,j));
+			break;
+		}
 	}
 	
 	@Override
