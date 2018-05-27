@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
-import com.main.Main;
 import com.main.Storage;
 import com.model.world.World;
 
