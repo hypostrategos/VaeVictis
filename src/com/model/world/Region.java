@@ -3,7 +3,6 @@ package com.model.world;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 import com.model.creature.Creature;
 import com.model.creature.Human;
@@ -22,7 +21,7 @@ public class Region implements java.io.Serializable {
 		StringBuilder sb = new StringBuilder();
 		int val;		
 		for (int j=0;j<yMax;j++) {
-			for (int i=0;i<yMax;i++) {
+			for (int i=0;i<xMax;i++) {
 //				val = rand.nextInt(5);
 				val = 1;
 				switch(val) {

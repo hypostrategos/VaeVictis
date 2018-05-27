@@ -1,6 +1,8 @@
 package com.model.creature;
 
-import com.model.creature.body.*;
+import com.model.creature.body.limb.*;
+import com.model.creature.body.Frame;
+import com.model.creature.body.internal.*;
 
 public class Human extends Creature {
 	
@@ -8,11 +10,12 @@ public class Human extends Creature {
 		super(xLoc, yLoc);
 		frame = new Frame();
 		frame.addHead()
-			.addBrain();
+			.addInternal(new Brain()).addInternal(new Mouth()).addInternal(new Eyes());
 		frame.addTorsoSegment()
-			.addLeg().addLeg();
+			.addLimb(new Leg()).addLimb(new Leg()).addInternal(new Intestines());
 		frame.addTorsoSegment()
-			.addArm().addArm();
+			.addLimb(new Arm()).addLimb(new Arm()).addInternal(new Heart()).addInternal(new Stomach());
 	}
+	//19444 vs 26281 @ 1000x100 region
 
 }
