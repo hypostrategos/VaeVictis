@@ -4,23 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.controller.player.Player;
+
 public class World implements java.io.Serializable  {
 	public double currTime;
 	
 	public List<Region> regions = new ArrayList<>();
-	public Region currRegion;
 
 	public static World instance = new World();
 					
 	public World() {
-		currRegion = new Region();
+		Region currRegion = new Region();
+		Player.currRegion = currRegion;
 		regions.add(currRegion);
 	}
-	
-	public Region getCurrRegion() {
-		return currRegion;
-	}
-	
+		
 	public void addRegion() {
 		regions.add(new Region());
 	}

@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
+import com.controller.player.Player;
 import com.main.Storage;
 import com.model.world.World;
 
@@ -42,12 +43,21 @@ class keyEvent implements KeyListener {
 			 break;
 			 case 68 : System.out.println("----Regions: "+World.instance.regions.size()
 			 +"	Time: "+World.instance.currTime+"\n"+World.instance);
-//				 System.out.println(World.instance.getCurrRegion().creatures); // d key 
 			 break;
 			// case 88 : map.mapIncreaseSpecies(1); //z key
 			// break;
 //			 case 90: map.mapIncreaseSpecies(2); //x key
 //			 break;
+			 case 104 : Player.instance.move(0,-1);
+			 break;
+			 case 102 : Player.instance.move(1,0); 
+			 break;
+			 case 98 : Player.instance.move(0,1);
+			 break;
+			 case 100 : Player.instance.move(-1,0);
+			 break;
+			 
+			 
 			case 27 : System.exit(0); //esc key
 			break;
 		}
