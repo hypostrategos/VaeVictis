@@ -4,8 +4,6 @@ import com.model.creature.Creature;
 import com.model.world.Region;
 
 public class Player extends Creature{
-//	public Player instance;
-	public int icon=9;
 
 	public Player(int xLoc, int yLoc, Region currRegion) {
 		super(xLoc, yLoc, currRegion);
@@ -18,8 +16,12 @@ public class Player extends Creature{
 	
 	public void move(int xDisp, int yDisp) {
 		super.move(xDisp, yDisp);
-		currRegion.tiles[xLoc][yLoc]=icon;
 		System.out.println(getPos());
+	}
+	
+	@Override
+	public int getIcon() {
+		return 9;
 	}
 
 	

@@ -49,13 +49,17 @@ class keyEvent implements KeyListener {
 			 break;
 //			 case 90: map.mapIncreaseSpecies(2); //x key
 //			 break;
-			 case 104 : world.player.move(0,-1);
+			 case 104 : world.player.move(0,-1); 
+//			 world.player.currRegion.creatures.get(1).move(0,-1);
 			 break;
 			 case 102 : world.player.move(1,0); 
+//			 world.player.currRegion.creatures.get(1).move(1,0);
 			 break;
 			 case 98 : world.player.move(0,1);
+//			 world.player.currRegion.creatures.get(1).move(0,1);
 			 break;
 			 case 100 : world.player.move(-1,0);
+//			 world.player.currRegion.creatures.get(1).move(-1,0);
 			 break;
 			 
 			 

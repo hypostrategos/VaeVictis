@@ -42,16 +42,16 @@ public class Region implements java.io.Serializable {
 	
 	private int spawn(int i, int j) {
 		if (i==0&&j==0) {
-//			tiles[i][j] = 9;
 			return 9;
 		}
 		int tileValue = rand.nextInt(5);
 		switch(tileValue) {
 			case 1: creatureSpawn(i,j);
-			break;
-		}
-		
-		return tileValue;
+					return tileValue;
+//			break;
+		}	
+//		return tileValue;
+		return 0;
 	}
 	
 	private void creatureSpawn(int i, int j) {

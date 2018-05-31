@@ -9,14 +9,9 @@ import com.controller.player.Player;
 public class World implements java.io.Serializable  {
 	public double currTime;
 	public Player player;
-	
 	public List<Region> regions = new ArrayList<>();
-
-//	public World instance = new World();
 					
 	public World() {
-//		Region currRegion = new Region();
-//		player.currRegion = currRegion;
 		Region region = new Region();
 		player = new Player(region);
 		regions.add(region);
