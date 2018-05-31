@@ -24,6 +24,7 @@ public class Display {
 }
 
 class keyEvent implements KeyListener {
+	World world;
 	
 	public keyEvent () {
 	}
@@ -31,30 +32,30 @@ class keyEvent implements KeyListener {
 	public void keyPressed(KeyEvent k) {
 //		 System.out.println(k.getKeyCode());
 		switch(k.getKeyCode()) {
-			 case 84 : World.instance.addRegion(); //t key
+			 case 84 : world.addRegion(); //t key
 			 break;
-			 case 85 : World.instance.worldUpdate(1); // u key
+			 case 85 : world.worldUpdate(1); // u key
 			 break;
-			 case 73 : World.instance.worldUpdate(100); //i key
+			 case 73 : world.worldUpdate(100); //i key
 			 break;
-			 case 83 : Storage.save("NewSave.sav"); //s
+			 case 83 : Storage.save("NewSave.sav", world); //s
 			 break;
-			 case 76 : Storage.load("NewSave.sav");  //l
+			 case 76 : world = Storage.load("NewSave.sav");  //l
 			 break;
-			 case 68 : System.out.println("----Regions: "+World.instance.regions.size()
-			 +"	Time: "+World.instance.currTime+"\n"+World.instance);
+			 case 68 : System.out.println("----Regions: "+world.regions.size()
+			 +"	Time: "+world.currTime+"\n"+world);
 			 break;
-			// case 88 : map.mapIncreaseSpecies(1); //z key
-			// break;
+			 case 78 : world = new World(); System.out.println("New Game"); //n key
+			 break;
 //			 case 90: map.mapIncreaseSpecies(2); //x key
 //			 break;
-			 case 104 : Player.instance.move(0,-1);
+			 case 104 : world.player.move(0,-1);
 			 break;
-			 case 102 : Player.instance.move(1,0); 
+			 case 102 : world.player.move(1,0); 
 			 break;
-			 case 98 : Player.instance.move(0,1);
+			 case 98 : world.player.move(0,1);
 			 break;
-			 case 100 : Player.instance.move(-1,0);
+			 case 100 : world.player.move(-1,0);
 			 break;
 			 
 			 

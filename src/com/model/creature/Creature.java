@@ -2,20 +2,20 @@ package com.model.creature;
 
 import com.model.creature.body.Frame;
 import com.model.world.Region;
-import com.model.world.World;
 
 public class Creature implements java.io.Serializable {
-	public static Region currRegion;
+	public Region currRegion;
 
 	public int icon=1;
 	public int xLoc;
 	public int yLoc;
 	Frame frame;
 	
-	public Creature(int xLoc, int yLoc) {
+	public Creature(int xLoc, int yLoc, Region currRegion) {
 		this.xLoc = xLoc;
 		this.yLoc = yLoc;
-//		System.out.println("Creature created "+xLoc+" "+yLoc);
+		this.currRegion = currRegion;
+		System.out.println("Creature created "+xLoc+" "+yLoc);
 	}
 	
 	public void move(int xDisp, int yDisp) {

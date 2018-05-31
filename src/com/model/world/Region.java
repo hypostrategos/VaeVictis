@@ -17,7 +17,7 @@ public class Region implements java.io.Serializable {
 	
 	public List<Creature> creatures = new ArrayList<>();
 			
-	Region() {
+	public Region() {
 		StringBuilder sb = new StringBuilder();
 		int tileValue;
 		for (int j=0;j<yMax;j++) {
@@ -41,10 +41,8 @@ public class Region implements java.io.Serializable {
 
 	
 	private int spawn(int i, int j) {
-		if (Player.instance == null) {
-			Player.instance = new Player(i,j);
-			creatures.add(Player.instance);
-			tiles[i][j] = 9;
+		if (i==0&&j==0) {
+//			tiles[i][j] = 9;
 			return 9;
 		}
 		int tileValue = rand.nextInt(5);
@@ -58,13 +56,13 @@ public class Region implements java.io.Serializable {
 	
 	private void creatureSpawn(int i, int j) {
 		switch( rand.nextInt(4) ) {
-			case 0: creatures.add(new Human(i,j));
+			case 0: creatures.add(new Human(i,j,this));
 			break;
-			case 1: creatures.add(new Dog(i,j));
+			case 1: creatures.add(new Dog(i,j,this));
 			break;
-			case 2: creatures.add(new Elf(i,j));
+			case 2: creatures.add(new Elf(i,j,this));
 			break;
-			case 3: creatures.add(new Snake(i,j));
+			case 3: creatures.add(new Snake(i,j,this));
 			break;
 		}
 	}

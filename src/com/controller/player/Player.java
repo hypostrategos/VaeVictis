@@ -1,15 +1,19 @@
 package com.controller.player;
 
 import com.model.creature.Creature;
+import com.model.world.Region;
 
 public class Player extends Creature{
-	public static Player instance;
+//	public Player instance;
 	public int icon=9;
 
-	public Player(int xLoc, int yLoc) {
-		super(xLoc, yLoc);
+	public Player(int xLoc, int yLoc, Region currRegion) {
+		super(xLoc, yLoc, currRegion);
 //		System.out.println("Player Created");
-		// TODO Auto-generated constructor stub
+	}
+	
+	public Player(Region currRegion) {
+		super(0,0, currRegion);
 	}
 	
 	public void move(int xDisp, int yDisp) {

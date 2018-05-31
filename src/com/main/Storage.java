@@ -8,20 +8,22 @@ import java.io.ObjectOutputStream;
 import com.model.world.World;
 
 public class Storage {	
-	public static void load(String saveName) {
+	public static World load(String saveName) {
+		World world=null;
 		try {
 			ObjectInputStream save = new ObjectInputStream(new FileInputStream(saveName));
-			World.instance = (World) save.readObject();
+			world = (World) save.readObject();
 			save.close();
 			System.out.println(saveName+" Loaded");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return world;
 	}
-	public static void save(String saveName) {
+	public static void save(String saveName, World world) {
 		try {
 			ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream(saveName));
-			save.writeObject(World.instance);
+			save.writeObject(world);
 			save.close();
 			System.out.println(saveName+" Saved");
 		} catch(Exception e) {
