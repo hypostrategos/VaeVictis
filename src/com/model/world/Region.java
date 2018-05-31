@@ -67,6 +67,15 @@ public class Region implements java.io.Serializable {
 		}
 	}
 	
+	public Creature getCreatureAt(int x, int y) {
+		for (Creature creature : creatures) {
+			if (creature.xLoc==x&&creature.yLoc==y) {
+				return creature;
+			}
+		}
+		return null;
+	}
+	
 	@Override
 	public String toString() {
 		overviewGen();

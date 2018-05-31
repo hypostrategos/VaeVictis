@@ -23,8 +23,15 @@ public class Display {
 	}
 }
 
+enum Context {
+	MOVE, ATTACK, CREATURE_MOVE;
+	public Context getNext() {
+		return values()[(ordinal()+1)%values().length];
+	}
+}
 class keyEvent implements KeyListener {
 	World world;
+	Context ctx = Context.MOVE;
 	
 	public keyEvent () {
 	}
@@ -49,23 +56,33 @@ class keyEvent implements KeyListener {
 			 break;
 //			 case 90: map.mapIncreaseSpecies(2); //x key
 //			 break;
-			 case 104 : world.player.move(0,-1); 
-//			 world.player.currRegion.creatures.get(1).move(0,-1);
+			 case 67: ctx = ctx.getNext();
+			 System.out.println(ctx);
 			 break;
-			 case 102 : world.player.move(1,0); 
-//			 world.player.currRegion.creatures.get(1).move(1,0);
+			 case 104 : setInput(0,-1);
 			 break;
-			 case 98 : world.player.move(0,1);
-//			 world.player.currRegion.creatures.get(1).move(0,1);
+			 case 102 : setInput(1,0);
 			 break;
-			 case 100 : world.player.move(-1,0);
-//			 world.player.currRegion.creatures.get(1).move(-1,0);
+			 case 98 : setInput(0, 1);
 			 break;
-			 
-			 
+			 case 100 : setInput(-1, 0);
+			 break;
+
 			case 27 : System.exit(0); //esc key
 			break;
 		}
+	}
+	
+	private void setInput(int x, int y) {
+		switch (ctx) {
+			case MOVE: world.player.move(x, y);
+			break;
+			case ATTACK: world.player.attack(x, y);
+			break;
+			case CREATURE_MOVE: world.player.currRegion.creatures.get(1).move(x ,y);
+			break;
+		}
+		ctx=Context.MOVE;
 	}
 
 	@Override

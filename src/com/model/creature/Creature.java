@@ -33,9 +33,22 @@ public class Creature implements java.io.Serializable {
 		}
 		System.out.println(currRegion);
 	}
+	
 	public int getIcon() {
 		return 1;
 	}
+	
+	public void attack(int xTarg, int yTarg) {
+		xTarg = xLoc+xTarg; 
+		yTarg = yLoc+yTarg;
+		Creature crTarg = currRegion.getCreatureAt(xTarg,yTarg);
+		if (crTarg==null) {
+			System.out.println("No creature at : "+xTarg+" "+yTarg);
+		} else {
+			System.out.println(crTarg);
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return frame+" xLoc:"+xLoc+" yLoc:"+yLoc+"\n";
