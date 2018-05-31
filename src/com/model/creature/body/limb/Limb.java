@@ -5,5 +5,6 @@ import com.model.creature.body.Part;
 public abstract class Limb extends Part {
 	
 	int length;
+	int strength;
 
 }

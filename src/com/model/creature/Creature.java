@@ -9,7 +9,7 @@ public class Creature implements java.io.Serializable {
 
 	public int xLoc;
 	public int yLoc;
-	protected Frame frame;
+	public Frame frame;
 	public int baseSpeed=100;
 	public int speed;
 	
