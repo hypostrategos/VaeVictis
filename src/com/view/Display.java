@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
-import com.controller.player.Player;
 import com.main.Storage;
 import com.model.world.World;
 
@@ -14,12 +13,13 @@ public class Display {
 	public static final int yWidth = 800;
 	
 	public static void start() {
-		JFrame jf = new JFrame("Survival Game");
+		JFrame jf = new JFrame("Vae Victis");
 	    jf.setSize(xWidth+50,yWidth+50);
 	    jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	    jf.addKeyListener(new keyEvent());
 	    jf.setVisible(true);
+
 	}
 }
 
