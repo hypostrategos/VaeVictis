@@ -1,6 +1,8 @@
 package com.model.creature.body.internal;
 
-public abstract class Internal implements java.io.Serializable {
+import com.model.creature.body.Part;
+
+public abstract class Internal extends Part {
 	
 	int currentVolume;
 	int maxVolume;

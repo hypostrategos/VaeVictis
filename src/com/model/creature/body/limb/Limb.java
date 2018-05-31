@@ -1,6 +1,8 @@
 package com.model.creature.body.limb;
 
-public abstract class Limb implements java.io.Serializable {
+import com.model.creature.body.Part;
+
+public abstract class Limb extends Part {
 	
 	int length;
 

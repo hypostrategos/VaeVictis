@@ -49,14 +49,15 @@ class keyEvent implements KeyListener {
 			 break;
 			 case 76 : world = Storage.load("NewSave.sav");  //l
 			 break;
-			 case 68 : System.out.println("----Regions: "+world.regions.size()
-			 +"	Time: "+world.currTime+"\n"+world);
+			 case 68 : System.out.println("----Regions: "+world.regions.size()+"	Time: "+world.currTime+"\n"+world); //d
 			 break;
 			 case 78 : world = new World(); System.out.println("New Game"); //n key
 			 break;
 //			 case 90: map.mapIncreaseSpecies(2); //x key
 //			 break;
-			 case 67: ctx = ctx.getNext();
+			 case 65 : ctx = Context.ATTACK; //a
+			 break;
+			 case 67: ctx = ctx.getNext(); //c
 			 System.out.println(ctx);
 			 break;
 			 case 104 : setInput(0,-1);

@@ -9,11 +9,13 @@ public class Dog extends Creature {
 	
 	public Dog(int xLoc, int yLoc, Region currRegion) {
 		super(xLoc, yLoc, currRegion);
+		baseSpeed=150;
+		speed=baseSpeed;
 		frame = new Frame();
 		frame.addHead()
 			.addInternal(new Brain()).addInternal(new Mouth()).addInternal(new Eyes());
 		frame.addTorsoSegment()
-			.addLimb(new Leg()).addLimb(new Leg()).addInternal(new Intestines());
+			.addLimb(new Leg()).addLimb(new Leg()).addInternal(new Intestines()).addLimb(new Tail());
 		frame.addTorsoSegment()
 			.addLimb(new Leg()).addLimb(new Leg()).addInternal(new Heart()).addInternal(new Stomach());
 	}

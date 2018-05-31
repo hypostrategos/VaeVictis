@@ -9,11 +9,13 @@ public class Snake extends Creature {
 	
 	public Snake(int xLoc, int yLoc, Region currRegion) {
 		super(xLoc, yLoc, currRegion);
+		baseSpeed=50;
+		speed=baseSpeed;
 		frame = new Frame();
 		frame.addHead()
 			.addInternal(new Brain()).addInternal(new Mouth()).addInternal(new Eyes());
 		frame.addTorsoSegment()
-			.addInternal(new Intestines());
+			.addLimb(new Tail()).addInternal(new Intestines());
 		frame.addTorsoSegment()
 			.addInternal(new Heart()).addInternal(new Stomach());
 	}

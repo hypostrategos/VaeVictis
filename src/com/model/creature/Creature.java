@@ -1,5 +1,6 @@
 package com.model.creature;
 
+import com.controller.Combat;
 import com.model.creature.body.Frame;
 import com.model.world.Region;
 
@@ -8,9 +9,12 @@ public class Creature implements java.io.Serializable {
 
 	public int xLoc;
 	public int yLoc;
-	Frame frame;
+	protected Frame frame;
+	public int baseSpeed=100;
+	public int speed;
 	
 	public Creature(int xLoc, int yLoc, Region currRegion) {
+		speed = baseSpeed;
 		this.xLoc = xLoc;
 		this.yLoc = yLoc;
 		this.currRegion = currRegion;
@@ -45,13 +49,15 @@ public class Creature implements java.io.Serializable {
 		if (crTarg==null) {
 			System.out.println("No creature at : "+xTarg+" "+yTarg);
 		} else {
-			System.out.println(crTarg);
+			Combat.combStart(this, crTarg);
 		}
 	}
 	
 	@Override
 	public String toString() {
-		return frame+" xLoc:"+xLoc+" yLoc:"+yLoc+"\n";
+		return this.getClass()+" xLoc:"+xLoc+" yLoc:"+yLoc+
+				" Speed: "+speed+
+				"\n";
 	}
 
 }
