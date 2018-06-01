@@ -30,10 +30,10 @@ public class Player extends Creature{
 		this(0,0, currRegion);
 	}
 	
-	public void move(int xDisp, int yDisp) {
-		super.move(xDisp, yDisp);
-		System.out.println(getPos());
-	}
+//	public void move(int xDisp, int yDisp) {
+//		super.move(xDisp, yDisp);
+//		System.out.println(getPos());
+//	}
 	
 	@Override
 	public int getIcon() {

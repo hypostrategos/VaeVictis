@@ -1,101 +1,66 @@
 package com.view;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
-import com.main.Storage;
-import com.model.world.World;
-
-public class Display {
-	public static final int xWidth = 1200;
-	public static final int yWidth = 800;
+public class Display extends JPanel implements ActionListener {	
+//	public static String currInput="";
+    protected JTextField textField;
+    protected static JTextArea textArea;
+    private final static String newline = "\n";
+ 
+    public Display() {
+        super(new GridBagLayout());
+ 
+        textField = new JTextField(40);
+        textField.addActionListener(this);
+ 
+        textArea = new JTextArea(20, 40);
+        textArea.setEditable(false);
+        textArea.addKeyListener(new MapKeyEvent());
+        JScrollPane scrollPane = new JScrollPane(textArea);
+ 
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridwidth = GridBagConstraints.REMAINDER;
+ 
+        c.fill = GridBagConstraints.HORIZONTAL;
+        add(textField, c);
+ 
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1.0;
+        c.weighty = 1.0;
+        add(scrollPane, c);
+    }
+ 
+    public void actionPerformed(ActionEvent evt) {
+//        String text = textField.getText();
+//        textArea.append(text + newline);
+//        textField.selectAll();
+// 
+//        textArea.setCaretPosition(textArea.getDocument().getLength());
+    }
+    
+    public static void update(String update) {
+    	textArea.setText(update);
+        textArea.setCaretPosition(textArea.getDocument().getLength());
+    }
 	
-	public static void start() {
+	public static void createAndShowGUI() {
 		JFrame jf = new JFrame("Vae Victis");
-	    jf.setSize(xWidth+50,yWidth+50);
 	    jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-	    jf.addKeyListener(new keyEvent());
-	    jf.setVisible(true);
-
+        jf.add(new Display());
+        
+        jf.pack();
+        jf.setVisible(true);
+	    
 	}
-}
-
-enum Context {
-	MOVE, ATTACK, CREATURE_MOVE;
-	public Context getNext() {
-		return values()[(ordinal()+1)%values().length];
-	}
-}
-class keyEvent implements KeyListener {
-	World world;
-	Context ctx = Context.MOVE;
-	
-	public keyEvent () {
-	}
-	
-	public void keyPressed(KeyEvent k) {
-//		 System.out.println(k.getKeyCode());
-		switch(k.getKeyCode()) {
-			 case 84 : world.addRegion(); //t key
-			 break;
-			 case 85 : world.worldUpdate(1); // u key
-			 break;
-			 case 73 : world.worldUpdate(100); //i key
-			 break;
-			 case 83 : Storage.save("NewSave.sav", world); //s
-			 break;
-			 case 76 : world = Storage.load("NewSave.sav");  //l
-			 break;
-			 case 68 : System.out.println("----Regions: "+world.regions.size()+"	Time: "+world.currTime+"\n"+world); //d
-			 break;
-			 case 78 : world = new World(); System.out.println("New Game"); //n key
-			 break;
-//			 case 90: map.mapIncreaseSpecies(2); //x key
-//			 break;
-			 case 65 : ctx = Context.ATTACK; //a
-			 break;
-			 case 67: ctx = ctx.getNext(); //c
-			 System.out.println(ctx);
-			 break;
-			 case 104 : setInput(0,-1);
-			 break;
-			 case 102 : setInput(1,0);
-			 break;
-			 case 98 : setInput(0, 1);
-			 break;
-			 case 100 : setInput(-1, 0);
-			 break;
-
-			case 27 : System.exit(0); //esc key
-			break;
-		}
-	}
-	
-	private void setInput(int x, int y) {
-		switch (ctx) {
-			case MOVE: world.player.move(x, y);
-			break;
-			case ATTACK: world.player.attack(x, y);
-			break;
-			case CREATURE_MOVE: world.player.currRegion.creatures.get(1).move(x ,y);
-			break;
-		}
-		ctx=Context.MOVE;
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

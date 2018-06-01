@@ -21,7 +21,7 @@ public class Creature implements java.io.Serializable {
 //		System.out.println("Creature created "+xLoc+" "+yLoc);
 	}
 	
-	public void move(int xDisp, int yDisp) {
+	public String move(int xDisp, int yDisp) {
 		int xFut=xLoc+xDisp;
 		int yFut=yLoc+yDisp;
 		if ((xFut>=0 && xFut<Region.xMax
@@ -35,7 +35,7 @@ public class Creature implements java.io.Serializable {
 		} else {
 			System.out.println("Can't move there");
 		}
-		System.out.println(currRegion);
+		return currRegion+"";
 	}
 	
 	public int getIcon() {

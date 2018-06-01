@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.model.creature.body.internal.Internal;
 
-public class Head implements java.io.Serializable {
+public class Head extends Part {
 	
 	List<Internal> internals = new ArrayList<>();
 	

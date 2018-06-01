@@ -10,8 +10,8 @@ import com.model.creature.*;
 public class Region implements java.io.Serializable {
 
 	Random rand = new Random();
-	public final static int xMax = 1000;
-	public final static int yMax = 100;
+	public final static int xMax = 10;
+	public final static int yMax = 10;
 	public int tiles[][] = new int[xMax][yMax];
 	String overview;
 	
